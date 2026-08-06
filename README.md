@@ -158,7 +158,7 @@ JSON **uma vez** e expõe os métodos que o resto do código consome. Tanto o
 `cli.py` estiver abrindo o JSON na mão, tem coisa errada na modelagem.
 
 ### A interface obrigatória
-
+.
 A classe precisa ter exatamente estes **16 métodos**, com exatamente estas
 assinaturas. Os nomes dos parâmetros importam (o `consultas.json` usa esses
 mesmos nomes, veja a seção *Modo batch*):
