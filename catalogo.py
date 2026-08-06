@@ -162,5 +162,15 @@ class Catalogo:
 
     def mostrar (self):
         print(self.conteudos)
-cat1= Catalogo("catalogo_dev.json")
-cat1.mostrar()
+if __name__ == "__main__":
+    cat1 = Catalogo("catalogo_dev.json")
+   # print(cat1.listar_usuarios())
+    #print(cat1.buscar_usuario_por_nome("Clara"))
+    #print(cat1.playlist_de("u05"))
+    #print(cat1.conteudo_na_posicao("u05", 0))
+print(cat1.rating_de("t000018"))
+print(cat1.duracao_total_de("t000018"))
+print(cat1.generos_de("t000018"))
+print(cat1.plataformas_de("t000018"))
+print(cat1.data_adicionado_de("t000018"))
+print(cat1.execucoes_de("t000018"))
