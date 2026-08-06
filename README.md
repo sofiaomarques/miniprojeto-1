@@ -133,7 +133,7 @@ As diferenças entre os dois tipos:
 E `usuarios` é uma lista à parte: cada um tem `id`, `nome` e uma `playlist`,
 que é uma lista de ids de conteúdo, e **a ordem da playlist importa**.
 
-### As 7 sujeiras intencionais
+### As 7 sujeiras intencionais 
 
 | Sujeira | Frequência | O que ela força vocês a aprender |
 |---|---|---|
