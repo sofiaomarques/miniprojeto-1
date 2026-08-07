@@ -164,6 +164,7 @@ class Catalogo:
         print(self.conteudos)
 if __name__ == "__main__":
     cat1 = Catalogo("catalogo_dev.json")
+    #testes 
     # print(cat1.listar_usuarios())
     #print(cat1.buscar_usuario_por_nome("Clara"))
     #print(cat1.playlist_de("u05"))

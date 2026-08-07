@@ -28,12 +28,27 @@ def mostrar_lista(lista):
             print(item)
 
 
+def descricao_conteudo(conteudo_id):
+    conteudo = cat1.conteudos_por_id.get(conteudo_id)
+    if conteudo is None:
+        return conteudo_id
+    return f'{conteudo["titulo"]}, de {conteudo["artista"]} ({conteudo["tipo"]}) - {conteudo_id}'
+
+
+def mostrar_conteudos(conteudo_ids):
+    if len(conteudo_ids) == 0:
+        print("Nenhum resultado.")
+    else:
+        for posicao, conteudo_id in enumerate(conteudo_ids, 1):
+            print(f"{posicao}. {descricao_conteudo(conteudo_id)}")
+
+
 def mostrar_playlist(usuario_id):
     playlist = cat1.playlist_de(usuario_id)
     if playlist is None:
         print("Usuário não encontrado.")
     else:
-        mostrar_lista(playlist)
+        mostrar_conteudos(playlist)
 
 
 opcao = ""
@@ -69,7 +84,7 @@ while opcao != "0" and opcao != "10":
                 if conteudo_id is None:
                     print("Posição inválida.")
                 else:
-                    print(conteudo_id)
+                    print(descricao_conteudo(conteudo_id))
             else:
                 print("Posição inválida.")
 
@@ -89,7 +104,7 @@ while opcao != "0" and opcao != "10":
             print("Algum usuário não foi encontrado.")
         else:
             resultado = cat1.intersecao_playlists(usuario_ids)
-            mostrar_lista(resultado)
+            mostrar_conteudos(resultado)
 
     elif opcao == "5":
         conteudo_id = input("Id do conteúdo: ")
@@ -98,6 +113,7 @@ while opcao != "0" and opcao != "10":
         if rating is None and cat1.generos_de(conteudo_id) is None:
             print("Conteúdo não encontrado.")
         else:
+            print(f"Conteúdo: {descricao_conteudo(conteudo_id)}")
             print(f"Rating: {rating}")
             print(f"Duração: {cat1.duracao_total_de(conteudo_id)}")
             print(f"Gêneros: {cat1.generos_de(conteudo_id)}")
@@ -108,7 +124,7 @@ while opcao != "0" and opcao != "10":
     elif opcao == "6":
         genero = input("Gênero: ")
         conteudos = cat1.conteudos_do_genero(genero)
-        mostrar_lista(conteudos)
+        mostrar_conteudos(conteudos)
 
     elif opcao == "7":
         conteudo_id = input("Id do conteúdo: ")
@@ -122,11 +138,11 @@ while opcao != "0" and opcao != "10":
         if proximo is None:
             print("Fila vazia.")
         else:
-            print(proximo)
+            print(descricao_conteudo(proximo))
 
     elif opcao == "9":
         fila = cat1.fila_atual()
-        mostrar_lista(fila)
+        mostrar_conteudos(fila)
 
     elif opcao == "0" or opcao == "10":
         print("Saindo.")
